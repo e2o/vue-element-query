@@ -165,6 +165,6 @@ vue-element-query is [MIT licensed](./LICENSE).
 
 * * *
 
-<img src="https://img.shields.io/npm/v/vue-element-query.svg">
-<img src="https://img.shields.io/npm/dt/vue-element-query.svg">
-<img src="https://img.shields.io/badge/license-MIT-blue.svg">
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/v/vue-element-query.svg"></a>
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/dt/vue-element-query.svg"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
