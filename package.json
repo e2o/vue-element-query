@@ -11,6 +11,7 @@
   },
   "author": "Enzo Eghermanne <enzo.eghermanne@district01.be>",
   "license": "MIT",
+  "repository": "github:e2o/vue-element-query",
   "keywords": [
     "vue",
     "element",
