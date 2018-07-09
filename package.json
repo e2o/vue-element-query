@@ -1,6 +1,6 @@
 {
   "name": "vue-element-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VueJS mixin plugin for creating element size queries in components",
   "main": "src/index.js",
   "scripts": {
