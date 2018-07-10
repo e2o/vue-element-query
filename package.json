@@ -1,11 +1,13 @@
 {
   "name": "vue-element-query",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "VueJS mixin plugin for creating element size queries in components",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "build": "rollup -c",
+    "prepare": "npm run build",
     "lint": "eslint src example --ext js,vue",
     "format": "npm run lint -- --fix"
   },
@@ -34,7 +36,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
@@ -46,6 +48,9 @@
     "eslint-plugin-vue": "^4.5.0",
     "file-loader": "^1.1.4",
     "prettier": "^1.12.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
