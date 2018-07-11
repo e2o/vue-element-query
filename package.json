@@ -30,11 +30,12 @@
     "mixin"
   ],
   "browserslist": [
+    "last 2 major versions",
     "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "not ie <= 10"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "vue": "^2.5.11"
   },
   "devDependencies": {
