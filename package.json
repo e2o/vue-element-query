@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "rollup -c",
-    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint src example --ext js,vue",
     "format": "npm run lint -- --fix"
   },
