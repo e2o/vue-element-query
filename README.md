@@ -155,6 +155,17 @@ export default {
 
 A small example (mainly used for development and testing purposes) can be found inside the [example folder](./example)
 
+# Browser support
+
+![IE](https://raw.github.com/alrra/browser-logos/45.10.0/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Chrome](https://raw.github.com/alrra/browser-logos/45.10.0/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/45.10.0/src/firefox/firefox_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/45.10.0/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/45.10.0/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+10+ | 65+ | 59+ | 52+ | 10+ |
+
+For a complete list of browsers, check [the browserlist query](http://browserl.ist/?q=last+2+major+versions%2C+%3E+1%25).
+
+_**Note:** other browsers than the ones listed might (and probably will) work as well._
+_Please refrain from opening issues for functionality that is not working in these browsers._
+
 # Contributing
 
 Feel free to provide feedback, open issues or create pull-requests to this repository.
