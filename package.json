@@ -36,6 +36,7 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "resize-observer-polyfill": "^1.5.0",
     "vue": "^2.5.11"
   },
   "devDependencies": {
