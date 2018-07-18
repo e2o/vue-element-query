@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - [2018-07-18](https://github.com/e2o/vue-element-query/releases/tag/v2.0.1)
+
+### Fixed
+
+-
+
+
 ## [2.0.0] - [2018-07-18](https://github.com/e2o/vue-element-query/releases/tag/v2.0.0)
 
 ### Added
@@ -17,9 +24,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Shield badges in README. (https://github.com/badges/shields/issues/1568)
 
 ### Removed
-
 - `debounce` property for `window.resize` events, on both component- and plugin-level.
 - `window.resize` usage in favor of ResizeObserver.
+
 
 ## [1.1.0] - [2018-07-11](https://github.com/e2o/vue-element-query/releases/tag/v1.1.0)
 
@@ -29,6 +36,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Run built script on `prepublishOnly` instead of `prepare`.
+
 
 ## [1.0.7] - [2018-07-11](https://github.com/e2o/vue-element-query/releases/tag/v1.0.7)
 
