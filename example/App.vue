@@ -8,7 +8,6 @@
 export default {
   name: "App",
   eq: {
-    // debounce: 50,
     breakpoints: {
       small: { maxWidth: 499 },
       medium: { minWidth: 500, maxWidth: 800 },
