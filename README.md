@@ -1,5 +1,9 @@
 # vue-element-query
 
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://badgen.now.sh/npm/v/vue-element-query" alt="NPM latest version"></a>
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://badgen.now.sh/npm/dm/vue-element-query" alt="NPM total downloads"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://badgen.now.sh/npm/license/vue-element-query" alt="License"></a>
+
 VueJS mixin plugin for creating element size queries in components.
 
 _How does this library function under the hood?_
@@ -143,9 +147,3 @@ Feel free to provide feedback, open issues or create pull-requests to this repos
 # License
 
 vue-element-query is [MIT licensed](./LICENSE).
-
-* * *
-
-<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/v/vue-element-query.svg"></a>
-<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/dt/vue-element-query.svg"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
