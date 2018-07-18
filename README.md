@@ -5,7 +5,7 @@ VueJS mixin plugin for creating element size queries in components.
 _How does this library function under the hood?_
 
 This plugin uses the [ResizeObserver API](https://wicg.github.io/ResizeObserver/) to observe element sizing changes.
-As ResizeObserver is [not widely supported yet](https://caniuse.com/#feat=resizeobserver), we make use of this [ponyfill](https://www.npmjs.com/package/resize-observer-polyfill) to
+As ResizeObserver is [not widely supported yet](https://caniuse.com/#feat=resizeobserver), we make use of this [ponyfill](https://www.npmjs.com/package/resize-observer-polyfill) to provide this API across non-supporting browsers.
 
 _How is this different than the other libraries out there?_
 
