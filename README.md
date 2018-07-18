@@ -2,6 +2,11 @@
 
 VueJS mixin plugin for creating element size queries in components.
 
+_How does this library function under the hood?_
+
+This plugin uses the [ResizeObserver API](https://wicg.github.io/ResizeObserver/) to observe element sizing changes.
+As ResizeObserver is [not widely supported yet](https://caniuse.com/#feat=resizeobserver), we make use of this [ponyfill](https://www.npmjs.com/package/resize-observer-polyfill) to
+
 _How is this different than the other libraries out there?_
 
 This plugin gives each component it's own sizing queries and active breakpoint state. [Other](https://github.com/scaccogatto/vue-viewports) [libraries](https://github.com/reinerBa/Vue-Responsive) [use](https://github.com/drenglish/vue-match-media) [the](https://github.com/jofftiquez/vue-media-query-mixin) [window](https://github.com/apertureless/vue-breakpoints) [size](https://github.com/AlexandreBonaventure/vue-mq) [to determine](https://github.com/SeregPie/VueResizeSensor) [breakpoints](https://github.com/adi518/vue-breakpoint-component). This is less powerful because each component should be able to define it's own behaviour without being aware of the components around it. And that's exactly what this plugin brings to you.
@@ -83,41 +88,6 @@ export default {
   }
 };
 </script>
-```
-
-## Debouncing sizing listeners
-
-The resize listeners for all components can be debounced through a global plugin option `debounce`.
-
-```js
-import Vue from "vue";
-import VueElementQuery from "vue-element-query";
-
-Vue.use(VueElementQuery, { debounce: 500 }); // debounce all resize listeners by 500ms
-```
-
-Similarly, this can be overwritten at component level by specifying the debounce time (in ms) on the `eq` instance.
-
-```js
-export default {
-  eq: {
-    debounce: 250, // wait 250ms before triggering size calculation for this component
-    breakpoints: {
-      small: { maxWidth: 499 },
-      medium: { minWidth: 500, maxWidth: 1199 },
-      large: { minWidth: 1200 }
-    }
-  },
-};
-```
-
-## Forcing size recalculation
-
-Because of technical limitations in the browser, size recalculations of components are only done on `window.resize`. If for some reason the size of a component changes following an action other than the resizing of the browser window, you can sync the component sizing & breakpoints again by forcing an update on the component.
-
-```js
-// inside the component
-this.$eq.forceUpdate
 ```
 
 ## Watching component size changes
