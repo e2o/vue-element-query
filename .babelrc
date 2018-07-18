@@ -5,7 +5,7 @@
         "browsers": ["last 2 major versions", "> 1%", "not ie <= 10"]
       },
       "modules": false,
-      "useBuiltIns": true,
+      "useBuiltIns": true
     }],
     "stage-3"
   ]
