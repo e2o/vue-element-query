@@ -27,7 +27,8 @@
     "responsive",
     "component",
     "plugin",
-    "mixin"
+    "mixin",
+    "ResizeObserver"
   ],
   "browserslist": [
     "last 2 major versions",
