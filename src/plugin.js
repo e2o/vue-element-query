@@ -71,8 +71,9 @@ export default {
          * Stop observing the current element and disconnect the ResizeObserver
          */
         $_elementQueryMixin_destroy() {
-          this.unobserve(this.$el);
-          this.resizeObserver.disconnect();
+          if (this.resizeObserver) {
+            this.resizeObserver.disconnect();
+          }
         },
 
         /**
