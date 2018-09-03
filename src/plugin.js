@@ -5,7 +5,7 @@ export default {
     Vue.mixin({
       data() {
         return {
-          resizeObserver: null,
+          $_elementQueryMixin_resizeObserver: null,
           size: {
             width: 0,
             height: 0
@@ -59,20 +59,22 @@ export default {
          * initialize the ResizeObserver for this component
          */
         $_elementQueryMixin_init() {
-          this.resizeObserver = new ResizeObserver(([entry]) => {
-            const { height, width } = entry.contentRect;
+          this.$_elementQueryMixin_resizeObserver = new ResizeObserver(
+            ([entry]) => {
+              const { height, width } = entry.contentRect;
 
-            this.size.height = height;
-            this.size.width = width;
-          }).observe(this.$el);
+              this.size.height = height;
+              this.size.width = width;
+            }
+          ).observe(this.$el);
         },
 
         /**
          * Stop observing the current element and disconnect the ResizeObserver
          */
         $_elementQueryMixin_destroy() {
-          if (this.resizeObserver) {
-            this.resizeObserver.disconnect();
+          if (this.$_elementQueryMixin_resizeObserver) {
+            this.$_elementQueryMixin_resizeObserver.disconnect();
           }
         },
 
