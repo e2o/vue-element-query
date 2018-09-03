@@ -10,14 +10,14 @@ export default {
             width: 0,
             height: 0
           },
-          eq: null
+          $_elementQueryMixin_eq: null
         };
       },
       computed: {
         $eq() {
           if (
-            this.eq &&
-            this.eq.breakpoints &&
+            this.$data.$_elementQueryMixin_eq &&
+            this.$data.$_elementQueryMixin_eq.breakpoints &&
             this.$data.$_elementQueryMixin_size &&
             // mark this.$data.$_elementQueryMixin_size.width and this.$data.$_elementQueryMixin_size.height as dependencies
             // for the reactivity of the computed breakpoints-property
@@ -26,11 +26,13 @@ export default {
           ) {
             // iterate over all queries and set their state
             // base on the query they have as properties
-            return Object.keys(this.eq.breakpoints).reduce(
+            return Object.keys(
+              this.$data.$_elementQueryMixin_eq.breakpoints
+            ).reduce(
               (accumulator, currentValue) => ({
                 ...accumulator,
                 [currentValue]: this.$_elementQueryMixin_checkAllConditions(
-                  this.eq.breakpoints[currentValue]
+                  this.$data.$_elementQueryMixin_eq.breakpoints[currentValue]
                 )
               }),
               {}
@@ -40,7 +42,8 @@ export default {
         }
       },
       watch: {
-        eq({ breakpoints } = {}) {
+        // eslint-disable-next-line func-names
+        "$data.$_elementQueryMixin_eq": function({ breakpoints } = {}) {
           if (breakpoints) {
             // $options.eq have been assigned a value
             this.$_elementQueryMixin_init();
@@ -50,7 +53,7 @@ export default {
       mounted() {
         // make $options.eq reactive by
         // assigning it to the component data
-        this.eq = this.$options.eq;
+        this.$data.$_elementQueryMixin_eq = this.$options.eq;
       },
       beforeDestroy() {
         this.$_elementQueryMixin_destroy();
