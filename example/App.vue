@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100px">
-    <h1>{{ size.width }} x {{ size.height }} ({{ $eq }})</h1>
+    <h1>({{ $eq }})</h1>
   </div>
 </template>
 
