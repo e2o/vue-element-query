@@ -8,9 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [3.0.0] - [2018-09-03](https://github.com/e2o/vue-element-query/releases/tag/v3.0.0)
 
-### Changed
-
-## Fixed
+### Fixed
 - collision on private data-properties by prefixing them with `$_elementQueryMixin_`. ([@e2o](https://github.com/e2o) in [#6](https://github.com/e2o/vue-element-query/pull/6))  
 _Note: This is a breaking change if you previously depended on any of the private properties `size`, `eq` or `resizeObserver` of this plugin. Although it is not recommended that you use these internal data-properties at all, you could update to v3.0.0 by prefixing them with `$_elementQueryMixin_` in your code._
 
