@@ -6,7 +6,7 @@ export default {
       data() {
         return {
           $_elementQueryMixin_resizeObserver: null,
-          size: {
+          $_elementQueryMixin_size: {
             width: 0,
             height: 0
           },
@@ -18,10 +18,11 @@ export default {
           if (
             this.eq &&
             this.eq.breakpoints &&
-            // mark this.size.width and this.size.height as dependencies
+            this.$data.$_elementQueryMixin_size &&
+            // mark this.$data.$_elementQueryMixin_size.width and this.$data.$_elementQueryMixin_size.height as dependencies
             // for the reactivity of the computed breakpoints-property
-            typeof this.size.width === "number" &&
-            typeof this.size.height === "number"
+            typeof this.$data.$_elementQueryMixin_size.width === "number" &&
+            typeof this.$data.$_elementQueryMixin_size.height === "number"
           ) {
             // iterate over all queries and set their state
             // base on the query they have as properties
@@ -59,12 +60,14 @@ export default {
          * initialize the ResizeObserver for this component
          */
         $_elementQueryMixin_init() {
-          this.$_elementQueryMixin_resizeObserver = new ResizeObserver(
+          this.$data.$_elementQueryMixin_resizeObserver = new ResizeObserver(
             ([entry]) => {
               const { height, width } = entry.contentRect;
 
-              this.size.height = height;
-              this.size.width = width;
+              if (this.$data.$_elementQueryMixin_size) {
+                this.$data.$_elementQueryMixin_size.height = height;
+                this.$data.$_elementQueryMixin_size.width = width;
+              }
             }
           ).observe(this.$el);
         },
@@ -73,8 +76,8 @@ export default {
          * Stop observing the current element and disconnect the ResizeObserver
          */
         $_elementQueryMixin_destroy() {
-          if (this.$_elementQueryMixin_resizeObserver) {
-            this.$_elementQueryMixin_resizeObserver.disconnect();
+          if (this.$data.$_elementQueryMixin_resizeObserver) {
+            this.$data.$_elementQueryMixin_resizeObserver.disconnect();
           }
         },
 
@@ -101,13 +104,13 @@ export default {
         $_elementQueryMixin_checkCondition(type, value) {
           switch (type) {
             case "minWidth":
-              return this.size.width >= value;
+              return this.$data.$_elementQueryMixin_size.width >= value;
             case "maxWidth":
-              return this.size.width <= value;
+              return this.$data.$_elementQueryMixin_size.width <= value;
             case "minHeight":
-              return this.size.height >= value;
+              return this.$data.$_elementQueryMixin_size.height >= value;
             case "maxHeight":
-              return this.size.height <= value;
+              return this.$data.$_elementQueryMixin_size.height <= value;
             // no default
           }
 
