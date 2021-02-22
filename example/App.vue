@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100px">
-    <h1>({{ $eq }})</h1>
+    <h1>{{ size.width }} x {{ size.height }} ({{ $eq }})</h1>
   </div>
 </template>
 
@@ -8,6 +8,7 @@
 export default {
   name: "App",
   eq: {
+    // debounce: 50,
     breakpoints: {
       small: { maxWidth: 499 },
       medium: { minWidth: 500, maxWidth: 800 },

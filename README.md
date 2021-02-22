@@ -1,15 +1,6 @@
 # vue-element-query
 
-<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://badgen.now.sh/npm/v/vue-element-query" alt="NPM latest version"></a>
-<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://badgen.now.sh/npm/dm/vue-element-query" alt="NPM total downloads"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="https://badgen.now.sh/npm/license/vue-element-query" alt="License"></a>
-
 VueJS mixin plugin for creating element size queries in components.
-
-_How does this library function under the hood?_
-
-This plugin uses the [ResizeObserver API](https://wicg.github.io/ResizeObserver/) to observe element sizing changes.
-As ResizeObserver is [not widely supported yet](https://caniuse.com/#feat=resizeobserver), we make use of this [ponyfill](https://www.npmjs.com/package/resize-observer-polyfill) to provide this API across non-supporting browsers.
 
 _How is this different than the other libraries out there?_
 
@@ -94,6 +85,41 @@ export default {
 </script>
 ```
 
+## Debouncing sizing listeners
+
+The resize listeners for all components can be debounced through a global plugin option `debounce`.
+
+```js
+import Vue from "vue";
+import VueElementQuery from "vue-element-query";
+
+Vue.use(VueElementQuery, { debounce: 500 }); // debounce all resize listeners by 500ms
+```
+
+Similarly, this can be overwritten at component level by specifying the debounce time (in ms) on the `eq` instance.
+
+```js
+export default {
+  eq: {
+    debounce: 250, // wait 250ms before triggering size calculation for this component
+    breakpoints: {
+      small: { maxWidth: 499 },
+      medium: { minWidth: 500, maxWidth: 1199 },
+      large: { minWidth: 1200 }
+    }
+  },
+};
+```
+
+## Forcing size recalculation
+
+Because of technical limitations in the browser, size recalculations of components are only done on `window.resize`. If for some reason the size of a component changes following an action other than the resizing of the browser window, you can sync the component sizing & breakpoints again by forcing an update on the component.
+
+```js
+// inside the component
+this.$eq.forceUpdate
+```
+
 ## Watching component size changes
 
 A listener can be set on the breakpoint states, to watch them get (de-)activated.
@@ -147,3 +173,9 @@ Feel free to provide feedback, open issues or create pull-requests to this repos
 # License
 
 vue-element-query is [MIT licensed](./LICENSE).
+
+* * *
+
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/v/vue-element-query.svg"></a>
+<a href="https://www.npmjs.com/package/vue-element-query"><img src="https://img.shields.io/npm/dt/vue-element-query.svg"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>

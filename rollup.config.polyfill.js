@@ -20,7 +20,8 @@ export default [
                 browsers: "last 2 versions"
               },
               modules: false,
-              useBuiltIns: "entry",
+              spec: true,
+              useBuiltIns: "usage",
               forceAllTransforms: true,
               corejs: {
                 version: 3,
