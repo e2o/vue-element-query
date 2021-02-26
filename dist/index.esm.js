@@ -58,7 +58,7 @@ var plugin = {
         return {
           resizeListenerActive: false,
           debounceTimer: null,
-          size: {
+          eqSize: {
             width: 0,
             height: 0
           },
@@ -69,9 +69,9 @@ var plugin = {
         $eq: function $eq() {
           var _this = this;
 
-          if (this.eq && this.eq.breakpoints && // mark this.size.width and this.size.height as dependencies
+          if (this.eq && this.eq.breakpoints && // mark this.eqSize.width and this.eqSize.height as dependencies
           // for the reactivity of the computed breakpoints-property
-          typeof this.size.width === "number" && typeof this.size.height === "number") {
+          typeof this.eqSize.width === "number" && typeof this.eqSize.height === "number") {
             // iterate over all queries and set their state
             // base on the query they have as properties
             var instance = Object.keys(this.eq.breakpoints).reduce(function (accumulator, currentValue) {
@@ -127,12 +127,12 @@ var plugin = {
         },
 
         /**
-         * gets the current component size (height & width)
+         * gets the current component eqSize (height & width)
          * based on the client sizes of the element
          */
         $_elementQueryMixin_resize: function $_elementQueryMixin_resize() {
-          this.size.height = this.$el.clientHeight;
-          this.size.width = this.$el.clientWidth;
+          this.eqSize.height = this.$el.clientHeight;
+          this.eqSize.width = this.$el.clientWidth;
         },
 
         /**
@@ -174,16 +174,16 @@ var plugin = {
         $_elementQueryMixin_checkCondition: function $_elementQueryMixin_checkCondition(type, value) {
           switch (type) {
             case "minWidth":
-              return this.size.width >= value;
+              return this.eqSize.width >= value;
 
             case "maxWidth":
-              return this.size.width <= value;
+              return this.eqSize.width <= value;
 
             case "minHeight":
-              return this.size.height >= value;
+              return this.eqSize.height >= value;
 
             case "maxHeight":
-              return this.size.height <= value;
+              return this.eqSize.height <= value;
             // no default
           }
 
@@ -191,7 +191,7 @@ var plugin = {
         },
 
         /**
-         * if an element changed size outside of `window.resize`
+         * if an element changed eqSize outside of `window.resize`
          * call this method to force an update on the breakpoints
          */
         $_elementQueryMixin_forceUpdate: function $_elementQueryMixin_forceUpdate() {
