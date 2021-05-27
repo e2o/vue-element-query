@@ -2,18 +2,21 @@
   "name": "vue-element-query",
   "version": "3.0.1",
   "description": "VueJS mixin plugin for creating element size queries in components",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "./dist/vue-element-query.js",
+  "module": "./dist/vue-element-query.esm.js",
+  "unpkg": "./dist/vue-element-query.umd.js",
+  "jsdelivr": "./dist/vue-element-query.umd.js",
   "files": [
-    "src",
     "dist"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build",
-    "lint": "eslint src example --ext js,vue",
-    "format": "npm run lint -- --fix"
+    "clean": "del-cli dist",
+    "prebuild": "yarn clean",
+    "dev": "NODE_ENV=dev bili --watch",
+    "build": "bili",
+    "lint": "eslint --ext .js .",
+    "lint:fix": "yarn lint --fix",
+    "prepublishOnly": "yarn lint && yarn build"
   },
   "author": "Enzo Eghermanne <enzo.eghermanne@district01.be>",
   "license": "MIT",
@@ -30,36 +33,19 @@
     "mixin",
     "ResizeObserver"
   ],
-  "browserslist": [
-    "last 2 major versions",
-    "> 1%",
-    "not ie <= 10"
-  ],
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "resize-observer-polyfill": "^1.5.0",
+  "peer-dependencies": {
     "vue": "^2.5.17"
   },
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.0"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-vue": "^4.7.1",
-    "file-loader": "^1.1.4",
-    "prettier": "^1.14.2",
-    "rollup": "^0.62.0",
-    "rollup-plugin-babel": "^3.0.7",
-    "vue-loader": "^13.7.3",
-    "vue-template-compiler": "^2.5.17",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^3.1.11"
+    "bili": "^5.0.5",
+    "del-cli": "^3.0.1",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "prettier": "^2.3.0"
   }
 }
