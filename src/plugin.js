@@ -7,8 +7,8 @@ export default {
         return {
           $_elementQueryMixin_resizeObserver: null,
           $_elementQueryMixin_size: {
-            width: 0,
-            height: 0
+            width: null,
+            height: null
           },
           $_elementQueryMixin_eq: null
         };
@@ -26,7 +26,7 @@ export default {
           ) {
             // iterate over all queries and set their state
             // base on the query they have as properties
-            return Object.keys(
+            const breakpoints = Object.keys(
               this.$data.$_elementQueryMixin_eq.breakpoints
             ).reduce(
               (accumulator, currentValue) => ({
@@ -37,8 +37,16 @@ export default {
               }),
               {}
             );
+
+            return {
+              isReady: true,
+              ...breakpoints
+            };
           }
-          return {};
+
+          return {
+            isReady: false
+          };
         }
       },
       watch: {
