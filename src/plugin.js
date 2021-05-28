@@ -26,7 +26,7 @@ export default {
           ) {
             // iterate over all queries and set their state
             // base on the query they have as properties
-            const breakpoints = Object.keys(
+            return Object.keys(
               this.$data.$_elementQueryMixin_eq.breakpoints
             ).reduce(
               (accumulator, currentValue) => ({
@@ -35,17 +35,14 @@ export default {
                   this.$data.$_elementQueryMixin_eq.breakpoints[currentValue]
                 )
               }),
-              {}
+              {
+                ready: true
+              }
             );
-
-            return {
-              isReady: true,
-              ...breakpoints
-            };
           }
 
           return {
-            isReady: false
+            ready: false
           };
         }
       },
