@@ -7,8 +7,8 @@ export default {
         return {
           $_elementQueryMixin_resizeObserver: null,
           $_elementQueryMixin_size: {
-            width: 0,
-            height: 0
+            width: null,
+            height: null
           },
           $_elementQueryMixin_eq: null
         };
@@ -35,10 +35,15 @@ export default {
                   this.$data.$_elementQueryMixin_eq.breakpoints[currentValue]
                 )
               }),
-              {}
+              {
+                ready: true
+              }
             );
           }
-          return {};
+
+          return {
+            ready: false
+          };
         }
       },
       watch: {
