@@ -35,15 +35,11 @@ export default {
                   this.$data.$_elementQueryMixin_eq.breakpoints[currentValue]
                 )
               }),
-              {
-                ready: true
-              }
+              { ready: true }
             );
           }
 
-          return {
-            ready: false
-          };
+          return { ready: false };
         }
       },
       watch: {
