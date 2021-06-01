@@ -125,6 +125,50 @@ export default {
 };
 ```
 
+## Waiting for ready state
+
+Since [v3.1.0]((https://github.com/e2o/vue-element-query/releases/tag/v3.1.0)) of this package, an additional property `$eq.ready` has been added. This can be useful in cases where you want to render a fallback-component, without explicitly defining a breakpoint for it:
+
+```html
+<template>
+  <div id="app">
+    <component1 v-if="$eq.medium" />
+    <component2 v-else />
+  </div>
+</template>
+```
+
+If the medium sized breakpoint is supposed to be active, without an `$eq.ready` wrapper `<component2 />` would render briefly until $eq is properly initialized, which may cause unwanted behaviour. In that case, you can wait for $eq to be properly set up:
+
+```html
+<template>
+  <div id="app">
+    <template v-if="$eq.ready">
+      <component1 v-if="$eq.medium" />
+      <component2 v-else />
+    </template>
+  </div>
+</template>
+
+<script>
+import Component1 from "@/components/Component1";
+import Component2 from "@/components/Component2";
+
+export default {
+  name: "App",
+  eq: {
+    breakpoints: {
+      medium: { minWidth: 500 },
+    },
+  },
+  components: {
+    Component1,
+    Component2,
+  },
+};
+</script>
+```
+
 # Example
 
 A small example (mainly used for development and testing purposes) can be found inside the [example folder](./example)
@@ -138,7 +182,7 @@ A small example (mainly used for development and testing purposes) can be found 
 For a complete list of browsers, check [the browserlist query](http://browserl.ist/?q=last+2+major+versions%2C+%3E+1%25).
 
 _**Note:** other browsers than the ones listed might (and probably will) work as well._
-_Please refrain from opening issues for functionality that is not working in these browsers._
+_Please refrain from opening issues for functionalities that are not working in these browsers._
 
 # Contributing
 
