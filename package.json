@@ -1,6 +1,6 @@
 {
   "name": "vue-element-query",
-  "version": "1.1.0",
+  "version": "3.1.0",
   "description": "VueJS mixin plugin for creating element size queries in components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "dev": "webpack serve --hot --open --env development --mode development",
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "lint": "eslint src example --ext js,vue",
@@ -27,7 +27,8 @@
     "responsive",
     "component",
     "plugin",
-    "mixin"
+    "mixin",
+    "ResizeObserver"
   ],
   "browserslist": [
     "last 2 major versions",
@@ -35,31 +36,30 @@
     "not ie <= 10"
   ],
   "dependencies": {
-    "@babel/core": "^7.12.17",
-    "core-js": "^3.9.0",
-    "vue": "^2.5.11"
+    "babel-polyfill": "^6.26.0",
+    "resize-observer-polyfill": "^1.5.0",
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.17",
-    "@babel/preset-env": "^7.12.17",
-    "@babel/preset-stage-3": "^7.8.3",
-    "@rollup/plugin-babel": "^5.3.0",
-    "babel-loader": "^8.2.2",
-    "cross-env": "^5.0.5",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-vue": "^4.5.0",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-vue": "^4.7.1",
     "file-loader": "^1.1.4",
-    "prettier": "^1.12.1",
-    "rollup": "^1.32.1",
+    "prettier": "^1.14.2",
+    "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.7",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^4.0.0",
-    "webpack-dev-server": "^3.0.1"
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
