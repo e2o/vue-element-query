@@ -3,11 +3,10 @@ export default {
     Vue.mixin({
       data() {
         return {
-          resizeListenerActive: false,
-          debounceTimer: null,
-          eqSize: {
-            width: 0,
-            height: 0
+          $_elementQueryMixin_resizeObserver: null,
+          $_elementQueryMixin_size: {
+            width: null,
+            height: null
           },
           eq: null
         };
@@ -31,7 +30,7 @@ export default {
                   this.eq.breakpoints[currentValue]
                 )
               }),
-              {}
+              { ready: true }
             );
 
             // bind public methods to the $eq instance
@@ -39,7 +38,8 @@ export default {
 
             return instance;
           }
-          return {};
+
+          return { ready: false };
         }
       },
       watch: {
